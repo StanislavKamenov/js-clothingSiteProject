@@ -17,6 +17,10 @@ nav {
   width: 100%;
 }
 
+.fa-bars {
+  display: none;
+}
+
 .container {
   display: flex;
   width: 100%;
@@ -26,6 +30,7 @@ nav {
 
 .logo {
   display: flex;
+  margin-left: 2rem;
   align-items: center;
 }
 
@@ -89,8 +94,13 @@ input[type="search"] {
   }
 
   .logo {
-    display: none;
+    display: block;
   }
+}
+
+/* Add this new rule */
+.navMenu-mobile.openMenu .navMobile {
+  display: flex;
 }
 
 .navMenu-mobile {
@@ -108,21 +118,14 @@ input[type="search"] {
   text-align: center;
 }
 
-.navMobile {
-  display: none;
-}
-
-@media only screen and (max-width: 695px) {
+@media only screen and (max-width: 800px) {
   .navMenu a {
     display: none;
   }
 
   .logo {
-    display: block;
-  }
-
-  .navMenu-mobile {
-    display: block;
+    display: flex;
+    margin-left: -0rem;
   }
 
   .navMobile {
@@ -141,6 +144,7 @@ input[type="search"] {
   }
 
   .fa-bars {
+    display: block;
     font-size: 30px;
     cursor: pointer;
     position: absolute;
@@ -148,19 +152,20 @@ input[type="search"] {
     right: 0px;
   }
 
-  .fa-bars:active {
-    transform: rotate(90deg);
+  .fullscreen-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.281);
+    z-index: 999;
+    pointer-events: none;
   }
-}
 
-.fullscreen-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.281);
-  z-index: 999;
-  pointer-events: none;
+  .openMenu {
+    opacity: 1;
+    display: block;
+  }
 }
